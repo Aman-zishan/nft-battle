@@ -23,6 +23,7 @@ const GameInfo = () => {
         type: "info",
         message: `You're quitting the ${battleName}`,
       });
+      navigate("/create-battle");
     } catch (error) {
       setErrorMessage(error);
     }

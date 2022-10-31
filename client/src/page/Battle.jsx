@@ -12,6 +12,7 @@ import {
   defenseSound,
   player01 as player01Icon,
   player02 as player02Icon,
+  bg,
 } from "../assets";
 import { playAudio } from "../utils/animation.js";
 

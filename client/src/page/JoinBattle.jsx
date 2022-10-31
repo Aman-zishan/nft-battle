@@ -4,7 +4,8 @@ import createBattle from "./createBattle";
 import { useGlobalContext } from "../context";
 import { CustomButton, pageHOC } from "../components";
 import styles from "../styles";
-import { joinPaths } from "@remix-run/router";
+import { playAudio } from "../utils/animation";
+import { join, bg } from "../assets";
 
 const JoinBattle = () => {
   const navigate = useNavigate();
@@ -21,11 +22,18 @@ const JoinBattle = () => {
         type: "success",
         message: `Joining ${battleName}`,
       });
+      playAudio(bg);
     } catch (error) {
       console.log(error);
     }
   };
-
+  useEffect(() => {
+    if (gameData?.activeBattle?.battleStatus === 1) {
+      navigate(`/battle/${gameData.activeBattle.name}`);
+    } else if (gameData?.activeBattle?.battleStatus === 0) {
+      setWaitBattle(true);
+    }
+  }, [gameData]);
   return (
     <>
       <h2 className={styles.joinHeadText}>Available battles:</h2>
@@ -53,6 +61,7 @@ const JoinBattle = () => {
       <p
         className={styles.infoText}
         onClick={() => {
+          playAudio(join);
           navigate("/create-battle");
         }}
       >

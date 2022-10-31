@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import styles from "../styles";
 import { pageHOC, CustomButton, CustomInput, GameLoad } from "../components";
 import { useGlobalContext } from "../context";
+import { playAudio } from "../utils/animation.js";
+import { join } from "../assets";
 
 const CreateBattle = () => {
   const [waitBattle, setWaitBattle] = useState(false);
@@ -46,6 +48,7 @@ const CreateBattle = () => {
       <p
         className={styles.infoText}
         onClick={() => {
+          playAudio(join);
           navigate("/join-battle");
         }}
       >
