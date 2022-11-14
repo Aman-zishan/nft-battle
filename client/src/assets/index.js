@@ -47,8 +47,8 @@ import alertIcon from "./alertIcon.svg";
 import AlertIcon from "./AlertIcon.jsx";
 
 // players
-import player01 from "./player01.png";
-import player02 from "./player02.png";
+import player01 from "./player01.jpg";
+import player02 from "./player02.jpg";
 
 // sounds
 import attackSound from "./sounds/attack.wav";
